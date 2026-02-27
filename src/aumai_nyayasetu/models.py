@@ -62,7 +62,10 @@ class QueryResult(BaseModel):
     rights: list[LegalRight] = Field(default_factory=list)
     procedures: list[LegalProcedure] = Field(default_factory=list)
     nearest_centers: list[LegalAidCenter] = Field(default_factory=list)
-    disclaimer: str = "This tool does not provide legal advice. Consult a qualified legal professional."
+    disclaimer: str = (
+        "This tool does NOT provide legal advice. All information is for general awareness only. "
+        "Consult a qualified legal professional before taking any legal action."
+    )
 
 
 __all__ = ["RightsCategory", "LegalRight", "LegalAidCenter", "EligibilityCheck", "LegalProcedure", "QueryResult"]

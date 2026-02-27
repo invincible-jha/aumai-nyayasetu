@@ -1,0 +1,4 @@
+# file: M:\Project DarkMatter\workspace\aumai-nyayasetu\src\aumai_nyayasetu\cli.py
+# hypothesis_version: 6.151.9
+
+['\nDocuments needed:', ', ', '--category', '--district', '--income', '--json-output', '--procedure', '--query', '--sc-st', '--search', '--state', 'Annual income in INR', 'Applicant is SC/ST', 'Available: ', 'Filter by category', 'Filter by district', 'Filter by state', 'Output as JSON', 'Search by keyword', 'Steps:', '__main__', 'help', 'query']

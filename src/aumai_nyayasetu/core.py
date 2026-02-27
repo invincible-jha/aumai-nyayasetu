@@ -6,7 +6,10 @@ from aumai_nyayasetu.models import (
     EligibilityCheck, LegalAidCenter, LegalProcedure, LegalRight, QueryResult, RightsCategory,
 )
 
-_DISCLAIMER = "This tool does not provide legal advice. Consult a qualified legal professional."
+DISCLAIMER = (
+    "This tool does NOT provide legal advice. All information is for general awareness only. "
+    "Consult a qualified legal professional before taking any legal action."
+)
 
 _RIGHTS: list[LegalRight] = [
     LegalRight(code="FR-01", name="Right to Equality", category=RightsCategory.FUNDAMENTAL,
@@ -165,6 +168,8 @@ class EligibilityChecker:
     EXEMPT: set[str] = {"women", "children", "sc_st", "disability", "custody", "trafficking_victim"}
 
     def check(self, annual_income: float, category: str | None = None, is_sc_st: bool = False) -> EligibilityCheck:
+        if annual_income < 0:
+            raise ValueError(f"annual_income must be non-negative, got {annual_income}")
         if category and category.lower() in self.EXEMPT:
             return EligibilityCheck(eligible=True, reason=f"Eligible as {category} (income waived)", income_threshold=0,
                                     criteria_met=[f"Category '{category}' exempt from income criteria"])
@@ -203,7 +208,16 @@ class RightsAdvisor:
                               ("domestic_violence", ["domestic", "violence", "abuse"])]:
             if any(k in q for k in keywords) and key in _PROCEDURES:
                 procedures.append(_PROCEDURES[key])
-        return QueryResult(rights=rights, procedures=procedures, disclaimer=_DISCLAIMER)
+        return QueryResult(rights=rights, procedures=procedures, disclaimer=DISCLAIMER)
+
+
+__all__ = [
+    "RightsDatabase",
+    "EligibilityChecker",
+    "LegalAidDirectory",
+    "RightsAdvisor",
+    "DocumentHelper",
+]
 
 
 class DocumentHelper:

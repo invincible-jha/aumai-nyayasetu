@@ -1,0 +1,4 @@
+# file: M:\Project DarkMatter\workspace\aumai-nyayasetu\src\aumai_nyayasetu\models.py
+# hypothesis_version: 6.151.9
+
+['EligibilityCheck', 'LegalAidCenter', 'LegalProcedure', 'LegalRight', 'QueryResult', 'RightsCategory', 'children', 'consumer', 'criminal_defense', 'disability', 'family', 'fundamental', 'labor', 'property', 'sc_st', 'women']

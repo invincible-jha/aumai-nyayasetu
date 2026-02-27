@@ -7,6 +7,7 @@ import json
 import click
 
 from aumai_nyayasetu.core import (
+    DISCLAIMER as _DISCLAIMER_TEXT,
     DocumentHelper,
     EligibilityChecker,
     LegalAidDirectory,
@@ -15,10 +16,7 @@ from aumai_nyayasetu.core import (
 )
 from aumai_nyayasetu.models import RightsCategory
 
-_DISCLAIMER = (
-    "\nDISCLAIMER: This tool does not provide legal advice. "
-    "Consult a qualified legal professional before taking any legal action.\n"
-)
+_DISCLAIMER = f"\nDISCLAIMER: {_DISCLAIMER_TEXT}\n"
 
 
 @click.group()
